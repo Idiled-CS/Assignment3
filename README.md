@@ -1,2 +1,5 @@
 # Assignment3
-Practical Web Dev Assignment 3
+
+Group: Andrew Pan
+
+https://idiled-cs.github.io/Assignment3/
