@@ -4,6 +4,11 @@ const grid = document.getElementById("grid");
 
 let colorSelected; 
 
+//Coloring
+function color(){
+    console.log("I did something!");
+
+}
 //Adds a row
 function addR() {
     numRows++;
@@ -15,6 +20,10 @@ function addR() {
     for(var i = 0; i < numCols; i++){
         let newCol = document.createElement("td");
         newCol.id = "col" + i;
+        newCol.style.backgroundColor = "white"
+
+        //Adding an onclick function
+        newCol.onclick = color();
 
         newRow.appendChild(newCol);
     }
@@ -28,6 +37,9 @@ function addC() {
     for(var i = 0; i < rows.length; i ++){
         let newCol = document.createElement("td");
         newCol.id = "col" + numCols;
+        newCol.style.backgroundColor = "white"
+
+        newCol.onclick = color();
 
         rows.item(i).appendChild(newCol);
     }
@@ -62,10 +74,27 @@ function selected(){
 }
 
 function fill(){
+    let t = document.getElementsByTagName("td");
+
+    //Going through the td documents to make them all one color
+    for(var x = 0; x < t.length; x++)
+        t.item(x).style.backgroundColor = colorSelected;
 }
 
 function clearAll(){
+    let t = document.getElementsByTagName("td");
+
+    //Making all td tags white
+    for(var x = 0; x < t.length; x++)
+        t.item(x).style.backgroundColor = "white";
 }
 
 function fillU(){
+    let t = document.getElementsByTagName("td");
+
+    //Going through the td documents but also checking before making them a certain color
+    for(var x = 0; x < t.length; x++){
+        if(t.item(x).style.backgroundColor == "white")
+            t.item(x).style.backgroundColor = colorSelected;
+    }
 }
