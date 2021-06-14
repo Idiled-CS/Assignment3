@@ -2,13 +2,8 @@ let numRows = 0;
 let numCols = 0;
 const grid = document.getElementById("grid");
 
-let colorSelected; 
+let colorSelected = "white"; 
 
-//Coloring
-function color(){
-    console.log("I did something!");
-
-}
 //Adds a row
 function addR() {
     numRows++;
@@ -20,10 +15,11 @@ function addR() {
     for(var i = 0; i < numCols; i++){
         let newCol = document.createElement("td");
         newCol.id = "col" + i;
-        newCol.style.backgroundColor = "white"
-
-        //Adding an onclick function
-        newCol.onclick = color();
+        newCol.style.backgroundColor = "white";
+        //Setting an onclick function
+        newCol.onclick = function(){
+            newCol.style.backgroundColor = colorSelected;
+        }
 
         newRow.appendChild(newCol);
     }
@@ -37,9 +33,13 @@ function addC() {
     for(var i = 0; i < rows.length; i ++){
         let newCol = document.createElement("td");
         newCol.id = "col" + numCols;
-        newCol.style.backgroundColor = "white"
+        newCol.style.backgroundColor = "white";
 
-        newCol.onclick = color();
+        //Setting an onclick function
+        newCol.onclick = function(){
+            newCol.style.backgroundColor = colorSelected;
+        }
+
 
         rows.item(i).appendChild(newCol);
     }
